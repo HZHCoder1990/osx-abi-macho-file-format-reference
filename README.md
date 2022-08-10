@@ -1,17 +1,17 @@
-Preamble: I couldn't find this anywhere on Apple's developer documentation website, so I've copied it here for my own benefit. If you are going to use this page, I highly recommend the [Github Table of Contents](https://github.com/arthurhammer/github-toc) web browser extension.
+Preamble(前言): I couldn't find this anywhere on Apple's developer documentation website, so I've copied it here for my own benefit(好处，益处). If you are going to use this page, I highly recommend the [Github Table of Contents](https://github.com/arthurhammer/github-toc) web browser extension.
 
 # OS X ABI Mach-O File Format Reference
 
 This document describes the structure of the Mach-O (Mach object) file format, which is the standard used to store programs and libraries on disk in the Mac app binary interface (ABI). To understand how the Xcode tools work with Mach-O files, and to perform low-level debugging tasks, you need to understand this information.
 
-The Mach-O file format provides both intermediate (during the build process) and final (after linking the final product) storage of machine code and data. It was designed as a flexible replacement for the BSD `a.out` format, to be used by the compiler and the static linker and to contain statically linked executable code at runtime. Features for dynamic linking were added as the goals of OS X evolved, resulting in a single file format for both statically linked and dynamically linked code.
+The Mach-O file format provides both intermediate(中间的) (during the build process) and final (after linking the final product) storage of machine code and data. It was designed as a flexible(灵活的) replacement for the BSD `a.out` format, to be used by the compiler and the static linker and to contain statically linked executable code at runtime. Features for dynamic linking were added as the goals of OS X evolved(使）逐渐形成), resulting in a single file format for both statically linked and dynamically linked code.
 
 ## Basic Structure
 
-A Mach-O file contains three major regions (as shown in Figure 1):
+A Mach-O file contains three major regions(领域) (as shown in Figure 1):
 
-- At the beginning of every Mach-O file is a *header structure* that identifies the file as a Mach-O file. The header also contains other basic file type information, indicates the target architecture, and contains flags specifying options that affect the interpretation of the rest of the file.
-- Directly following the header are a series of variable-size *load commands* that specify the layout and linkage characteristics of the file. Among other information, the load commands can specify:
+- At the beginning of every Mach-O file is a *header structure* that identifies the file as a Mach-O file. The header also contains other basic file type information, indicates(指示、显示) the target architecture, and contains flags specifying options that affect the interpretation(解释、理解) of the rest(剩余的) of the file.
+- Directly following the header are a series of variable-size *load commands* that specify the layout and linkage characteristics(特征、特色) of the file. Among(在……当中) other information, the load commands can specify:
   - The initial layout of the file in virtual memory
   - The location of the symbol table (used for dynamic linking)
   - The initial execution state of the main thread of the program
